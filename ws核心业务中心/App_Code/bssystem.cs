@@ -2795,7 +2795,18 @@ public class bssystem : System.Web.Services.WebService
                 if (typeName != null)
                 {
                     object instance = serviceAsm.CreateInstance("NoReSetAR_" + ht_forUI["this_extforinfoFSID"].ToString());
-                    object rtnObj = typeName.GetMethod("NRS_AR").Invoke(instance, new object[] { dsjg });
+                    MethodInfo mi = typeName.GetMethod("NRS_AR_other");
+                    object rtnObj;
+                    if (mi != null)
+                    {
+                        //优先调用NRS_AR_other
+                        rtnObj = typeName.GetMethod("NRS_AR_other").Invoke(instance, new object[] { dsjg, dic_mysearchtop, parameter_forUI });
+                    }
+                    else
+                    {
+                        rtnObj = typeName.GetMethod("NRS_AR").Invoke(instance, new object[] { dsjg });
+                    }
+
                     return (DataSet)rtnObj;
                 }
             }
@@ -3032,7 +3043,18 @@ public class bssystem : System.Web.Services.WebService
             if (typeName != null)
             {
                 object instance = serviceAsm.CreateInstance("NoReSetAR_" + ht_forUI["this_extforinfoFSID"].ToString());
-                object rtnObj = typeName.GetMethod("NRS_AR").Invoke(instance, new object[] { dsreturn });
+                MethodInfo mi = typeName.GetMethod("NRS_AR_other");
+                object rtnObj;
+                if (mi != null)
+                {
+                    //优先调用NRS_AR_other
+                    rtnObj = typeName.GetMethod("NRS_AR_other").Invoke(instance, new object[] { dsreturn, dic_mysearchtop, parameter_forUI });
+                }
+                else
+                {
+                    rtnObj = typeName.GetMethod("NRS_AR").Invoke(instance, new object[] { dsreturn });
+                }
+
                 return (DataSet)rtnObj;
             }
         }
