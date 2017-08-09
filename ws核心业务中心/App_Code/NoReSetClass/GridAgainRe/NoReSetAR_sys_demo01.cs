@@ -164,7 +164,7 @@ public class NoReSetAR_sys_demo01
     /// </summary>
     /// <param name="parameter_forUI">前台表单传来的参数</param>
     /// <returns></returns>
-    public DataSet NRS_AR_otherx(DataSet oldDS, Dictionary<string, string> dic_mysearchtop, DataTable parameter_forUI)
+    public DataSet NRS_AR_other(DataSet oldDS, Dictionary<string, string> dic_mysearchtop, DataTable parameter_forUI)
     {
         DataSet NewDS = null;
         NewDS = oldDS.Copy();
