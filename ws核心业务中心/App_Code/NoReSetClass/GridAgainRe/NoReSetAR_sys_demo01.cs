@@ -158,5 +158,27 @@ public class NoReSetAR_sys_demo01
     }
 
 
+
+    /// <summary>
+    /// 二次处理数据
+    /// </summary>
+    /// <param name="parameter_forUI">前台表单传来的参数</param>
+    /// <returns></returns>
+    public DataSet NRS_AR_otherx(DataSet oldDS, Dictionary<string, string> dic_mysearchtop, DataTable parameter_forUI)
+    {
+        DataSet NewDS = null;
+        NewDS = oldDS.Copy();
+
+        //DataSet dstemp = jsontodatatable.re_chart("柱状图数据", "Scity", null, null, "Stime", "Sint", oldDS.Tables["主要数据"],"yes");
+        DataSet dstemp = jsontodatatable.re_chart("曲线图数据", "Scity", null, null, "Stime", "Sint", oldDS.Tables["主要数据"], "yes");
+        // DataSet dstemp = jsontodatatable.re_chart("饼图数据", "Sname", "测试数据", null, "Sint", null, oldDS.Tables["主要数据"], "yes");
+        for (int i = 0; i < dstemp.Tables.Count; i++)
+        {
+            NewDS.Tables.Add(dstemp.Tables[i].Copy());
+        }
+        return NewDS;
+
+    }
+
 }
  
