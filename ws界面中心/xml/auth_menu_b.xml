@@ -574,19 +574,19 @@
     <SortMoveDown>-1</SortMoveDown>
   </菜单表>
   <菜单表>
-    <ID>5255</ID>
+    <ID>5256</ID>
     <SortID>190</SortID>
-    <SortName>新的测试</SortName>
+    <SortName>aaaaa</SortName>
     <SortParentID>13</SortParentID>
     <SortParentPath>,28,13,</SortParentPath>
     <SortOrder>11</SortOrder>
-    <m_url>/adminht/linshi/demo_test.aspx</m_url>
+    <m_url>/adminht/corepage/ccccc/ssss.aspx</m_url>
     <m_tip />
     <m_tag />
     <m_ico />
     <m_show>不隐藏</m_show>
     <m_url_formenu_g />
-    <SortNameTree>││├新的测试</SortNameTree>
+    <SortNameTree>││├aaaaa</SortNameTree>
     <SortMoveUp>0</SortMoveUp>
     <SortMoveDown>-5</SortMoveDown>
   </菜单表>

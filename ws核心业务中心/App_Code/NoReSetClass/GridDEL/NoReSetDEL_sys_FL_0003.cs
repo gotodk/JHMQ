@@ -129,7 +129,7 @@ public class NoReSetDEL_sys_FL_0003
                     for (int i = 0; i < DTsub.Rows.Count; i++)
                     {
                         string guid_sub = CombGuid.GetMewIdFormSequence("FUP_FormsSubInfo");
-                        alsql.Add("insert into FUP_FormsSubInfo select '" + guid_sub + "' as FSID, '" + guid + "' as FS_FID, FS_ok, FS_type, FS_name, FS_title, FS_minlength, FS_maxlength, FS_defaultvalue, FS_tip_n,    FS_tip_w, FS_passnull, FS_nulltip, FS_index, FS_SPPZ_list_static, FS_SPPZ_mask, FS_SPPZ_readonly, FS_D_haveD,  FS_D_yinruzhi, FS_D_shrinkToFit, FS_D_setGroupHeaders, FS_D_field,  FS_D_datatable, FS_D_where, FS_D_order,    FD_D_key, FD_D_pagesize  from FUP_FormsSubInfo where  FSID='" + DTsub.Rows[i]["FSID"].ToString() + "'");
+                        alsql.Add("insert into FUP_FormsSubInfo select '" + guid_sub + "' as FSID, '" + guid + "' as FS_FID, FS_ok,FS_quyu_css, FS_type, FS_name, FS_title, FS_minlength, FS_maxlength, FS_defaultvalue, FS_tip_n,    FS_tip_w, FS_passnull, FS_nulltip, FS_index, FS_SPPZ_list_static, FS_SPPZ_mask, FS_SPPZ_readonly, FS_D_haveD,  FS_D_yinruzhi, FS_D_shrinkToFit, FS_D_setGroupHeaders, FS_D_field,  FS_D_datatable, FS_D_where, FS_D_order,    FD_D_key, FD_D_pagesize  from FUP_FormsSubInfo where  FSID='" + DTsub.Rows[i]["FSID"].ToString() + "'");
 
 
                         //取出弹窗并重新插入

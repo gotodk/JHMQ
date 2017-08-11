@@ -14,6 +14,7 @@ using ServiceStack.Redis;
 using ServiceStack.Redis.Support;
 using System.IO;
 using System.Xml;
+using System.Text;
 
 /// <summary>
 /// 核心业务的相关处理接口
@@ -4139,11 +4140,203 @@ public class bssystem : System.Web.Services.WebService
         DataSet dsreturn = initReturnDataSet().Clone();
         dsreturn.Tables["返回值单条"].Rows.Add(new string[] { "err", "初始化" });
 
-        //参数合法性各种验证，这里省略
+        string alltishi = "执行结果：<br/>";
+
+        //直接拿到ui的生成结果
+        alltishi = alltishi + ht_forUI["UIjieguo"].ToString() + "<br/>";
+
+
+        //表单文件生成
+        if (ht_forUI["mbleixing"].ToString() == "一般表单")
+        {
+            //开始在bs上生成
+            string cljieguo = "<span class='red'>ERR:</span>表单文件生成写入错误";
+
+            //读取模板;
+            string modstr_cs = File.ReadAllText(Server.MapPath(ht_forUI["bsformmod"].ToString().Trim()).ToString(), Encoding.UTF8);
+            //替换关键字
+            string peizhizhujian = ht_forUI["peizhizhujian"].ToString();
+            string bsnewfile = ht_forUI["bsformnewfile"].ToString();
+            string bnf = Server.MapPath(bsnewfile);//新文件物理路径
+
+
+            modstr_cs = modstr_cs.Replace("public class NoReSet_modfile", "public class NoReSet_" + peizhizhujian);
+
+
+            //保存到文件(检查文件是否存在)
+            if (File.Exists(bnf))
+            {
+                //文件存在，提示
+                cljieguo = "<span class='red'>ERR:</span>表单处理逻辑文件路径已存在文件，不能写入！";
+            }
+            else
+            {
+                try
+                {
+                    //文件不存在，写入
+                    Directory.CreateDirectory(Path.GetDirectoryName(bnf));
+                    File.WriteAllText(bnf, modstr_cs, Encoding.UTF8);
+                 
+                    cljieguo = "OK:表单处理逻辑文件新文件成功从模板创建！";
+                }
+                catch (Exception ex)
+                {
+                    string aa = ex.ToString();
+                }
+
+            }
+
+            alltishi = alltishi + cljieguo + "<br/>";
+        }
+
+
+
+
+        //列表操作文件生成 
+        if (ht_forUI["mbleixing"].ToString() == "通用列表" && ht_forUI["bsczlj"].ToString() == "生成")
+        {
+            //开始在bs上生成
+            string cljieguo = "<span class='red'>ERR:</span>列表操作文件写入错误";
+
+            //读取模板;
+            string modstr_cs = File.ReadAllText(Server.MapPath("/App_Code/CreatingFileMod/NoReSetDEL_modfile.cs").ToString(), Encoding.UTF8);
+            //替换关键字
+            string peizhizhujian = ht_forUI["peizhizhujian"].ToString();
+            string bsnewfile = "/App_Code/NoReSetClass/GridDEL/NoReSetDEL_" + peizhizhujian + ".cs";
+            string bnf = Server.MapPath(bsnewfile);//新文件物理路径
+
+
+            modstr_cs = modstr_cs.Replace("public class NoReSetDEL_modfile", "public class NoReSetDEL_" + peizhizhujian);
+
+
+            //保存到文件(检查文件是否存在)
+            if (File.Exists(bnf))
+            {
+                //文件存在，提示
+                cljieguo = "<span class='red'>ERR:</span>列表操作文件路径已存在文件，不能写入！";
+            }
+            else
+            {
+                try
+                {
+                    //文件不存在，写入
+                    Directory.CreateDirectory(Path.GetDirectoryName(bnf));
+                    File.WriteAllText(bnf, modstr_cs, Encoding.UTF8);
+
+                    cljieguo = "OK:列表操作文件新文件成功从模板创建！";
+                }
+                catch (Exception ex)
+                {
+                    string aa = ex.ToString();
+                }
+
+            }
+
+            alltishi = alltishi + cljieguo + "<br/>";
+        }
+
+
+
+
+
+
+
+
+        //数据二次处理文件生成 
+        if (ht_forUI["mbleixing"].ToString() == "通用列表" && ht_forUI["bsdber"].ToString() == "生成")
+        {
+            //开始在bs上生成
+            string cljieguo = "<span class='red'>ERR:</span>数据二次处理文件写入错误";
+
+            //读取模板;
+            string modstr_cs = File.ReadAllText(Server.MapPath("/App_Code/CreatingFileMod/NoReSetAR_modfile.cs").ToString(), Encoding.UTF8);
+            //替换关键字
+            string peizhizhujian = ht_forUI["peizhizhujian"].ToString();
+            string bsnewfile = "/App_Code/NoReSetClass/GridAgainRe/NoReSetAR_" + peizhizhujian + ".cs";
+            string bnf = Server.MapPath(bsnewfile);//新文件物理路径
+
+
+            modstr_cs = modstr_cs.Replace("public class NoReSetAR_modfile", "public class NoReSetAR_" + peizhizhujian);
+
+
+            //保存到文件(检查文件是否存在)
+            if (File.Exists(bnf))
+            {
+                //文件存在，提示
+                cljieguo = "<span class='red'>ERR:</span>数据二次处理文件路径已存在文件，不能写入！";
+            }
+            else
+            {
+                try
+                {
+                    //文件不存在，写入
+                    Directory.CreateDirectory(Path.GetDirectoryName(bnf));
+                    File.WriteAllText(bnf, modstr_cs, Encoding.UTF8);
+
+                    cljieguo = "OK:数据二次处理文件新文件成功从模板创建！";
+                }
+                catch (Exception ex)
+                {
+                    string aa = ex.ToString();
+                }
+
+            }
+
+            alltishi = alltishi + cljieguo + "<br/>";
+        }
+
+
+
+
+
+        //条件二次处理文件生成 
+        if (ht_forUI["mbleixing"].ToString() == "通用列表" && ht_forUI["bstiaojianer"].ToString() == "生成")
+        {
+            //开始在bs上生成
+            string cljieguo = "<span class='red'>ERR:</span>条件二次处理文件写入错误";
+
+            //读取模板;
+            string modstr_cs = File.ReadAllText(Server.MapPath("/App_Code/CreatingFileMod/NoReSetAR_tsthcs_modfile.cs").ToString(), Encoding.UTF8);
+            //替换关键字
+            string peizhizhujian = ht_forUI["peizhizhujian"].ToString();
+            string bsnewfile = "/App_Code/NoReSetClass/GridAgainRe/NoReSetAR_tsthcs_" + peizhizhujian + ".cs";
+            string bnf = Server.MapPath(bsnewfile);//新文件物理路径
+
+
+            modstr_cs = modstr_cs.Replace("public class NoReSetAR_tsthcs_modfile", "public class NoReSetAR_tsthcs_" + peizhizhujian);
+
+
+            //保存到文件(检查文件是否存在)
+            if (File.Exists(bnf))
+            {
+                //文件存在，提示
+                cljieguo = "<span class='red'>ERR:</span>条件二次处理文件路径已存在文件，不能写入！";
+            }
+            else
+            {
+                try
+                {
+                    //文件不存在，写入
+                    Directory.CreateDirectory(Path.GetDirectoryName(bnf));
+                    File.WriteAllText(bnf, modstr_cs, Encoding.UTF8);
+
+                    cljieguo = "OK:条件二次处理文件新文件成功从模板创建！";
+                }
+                catch (Exception ex)
+                {
+                    string aa = ex.ToString();
+                }
+
+            }
+
+            alltishi = alltishi + cljieguo + "<br/>";
+        }
+
+
 
 
         dsreturn.Tables["返回值单条"].Rows[0]["执行结果"] = "ok";
-        dsreturn.Tables["返回值单条"].Rows[0]["提示文本"] = "结构代码文件生成完成！";
+        dsreturn.Tables["返回值单条"].Rows[0]["提示文本"] = alltishi;
 
 
 

@@ -29,15 +29,25 @@
             if (getUrlParam("scleixing") == "liebiao") {
                 $("#mbleixing").val("通用列表");
                 $("#uimod").val("/pucu/CreatingFileMod/listonlyformod.aspx");
+
+                //隐藏无用区域
+                $("#bsformmod").closest(".form-group").hide();
+                $("#bsformnewfile").closest(".form-group").hide();
+
             }
             if (getUrlParam("scleixing") == "biaodan") {
                 $("#mbleixing").val("一般表单");
                 $("#uimod").val("/pucu/CreatingFileMod/formonlyformod.aspx");
+
+                //隐藏无用区域  
+                $("input[name='bsczlj']").closest(".form-group").hide();
+                $("input[name='bsdber']").closest(".form-group").hide();
+                $("input[name='bstiaojianer']").closest(".form-group").hide();
             }
             
             $("#peizhizhujian").val(getUrlParam("pzzhujian"));
-
-            
+            // 
+            $("#bsformnewfile").val("/App_Code/NoReSetClass/NoReSet_"+$("#peizhizhujian").val()+".cs");
 
         });
     </script>

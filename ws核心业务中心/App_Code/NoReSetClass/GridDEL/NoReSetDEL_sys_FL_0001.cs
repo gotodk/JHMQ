@@ -121,7 +121,7 @@ public class NoReSetDEL_sys_FL_0001
                     //克隆主表
                     string oldid = ids[d];
                     string guid = CombGuid.GetMewIdFormSequence("FUP_FormsList");
-                    alsql.Add("insert into FUP_FormsList select '"+ guid + "' as FSID, FS_ok, FS_type, '复制自_'+FS_name+'_'+ CONVERT(nvarchar(20), datepart(ms,getdate()) ) as FS_name, FS_getJK, FS_delJK, FS_del_show, FS_can_download, FS_add_show,   FS_add_show_link, FS_zdy_op, FS_D_shrinkToFit, FS_D_setGroupHeaders, FS_D_field, FS_D_datatable, FS_D_where,  FS_D_order, FD_D_key, FD_D_pagesize, SRE_open, SRE_showname_1, SRE_idname_1, SRE_type_1,  SRE_showname_2, SRE_idname_2, SRE_type_2, SRE_showname_3, SRE_idname_3, SRE_type_3 from FUP_FormsList where FSID='" + oldid + "'");
+                    alsql.Add("insert into FUP_FormsList select '"+ guid + "' as FSID, FS_ok, FS_type, '复制自_'+FS_name+'_'+ CONVERT(nvarchar(20), datepart(ms,getdate()) ) as FS_name, FS_getJK, FS_delJK, FS_del_show, FS_can_download, FS_add_show,   FS_add_show_link, FS_zdy_op, FS_D_shrinkToFit, FS_D_setGroupHeaders, FS_D_field, FS_D_datatable, FS_D_where,  FS_D_order, FD_D_key, FD_D_pagesize, SRE_open, SRE_showname_1, SRE_idname_1, SRE_type_1,  SRE_showname_2, SRE_idname_2, SRE_type_2, SRE_showname_3, SRE_idname_3, SRE_type_3,FS_rediscache from FUP_FormsList where FSID='" + oldid + "'");
                     //取出子表并重新插入
                     Hashtable HTsub = I_DBL.RunParam_SQL("select DID from FUP_FormsList_field where DID_FSID='" + oldid + "' ", "数据记录", param);
                     DataTable DTsub = ((DataSet)HTsub["return_ds"]).Tables["数据记录"].Copy();
