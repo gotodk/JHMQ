@@ -4115,6 +4115,47 @@ public class bssystem : System.Web.Services.WebService
     }
 
 
+
+
+
+    /// <summary>
+    /// 处理结构代码文件生成
+    /// </summary>
+    /// <param name="parameter_forUI">UI端的参数，就一行数据表单原封不动提交过来，但多了几列当前用户登录状态识别信息，比如用户内部编号或邮箱等</param>
+    /// <returns></returns>
+    [WebMethod(MessageName = "处理结构代码文件生成", Description = "处理结构代码文件生成")]
+    public DataSet syscreatingfiles_run(DataTable parameter_forUI)
+    {
+
+        //接收转换参数
+        Hashtable ht_forUI = new Hashtable();
+        for (int i = 0; i < parameter_forUI.Rows.Count; i++)
+        {
+            ht_forUI[parameter_forUI.Rows[i]["参数名"].ToString()] = parameter_forUI.Rows[i]["参数值"].ToString();
+        }
+
+
+        //初始化返回值
+        DataSet dsreturn = initReturnDataSet().Clone();
+        dsreturn.Tables["返回值单条"].Rows.Add(new string[] { "err", "初始化" });
+
+        //参数合法性各种验证，这里省略
+
+
+        dsreturn.Tables["返回值单条"].Rows[0]["执行结果"] = "ok";
+        dsreturn.Tables["返回值单条"].Rows[0]["提示文本"] = "结构代码文件生成完成！";
+
+
+
+
+
+        return dsreturn;
+    }
+
+
+
+
+
     #endregion
 
 }

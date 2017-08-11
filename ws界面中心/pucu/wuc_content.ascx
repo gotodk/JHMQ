@@ -145,7 +145,7 @@
                                             {
                                                 case "输入框":
                                         %>
-                                        <div class="form-group " >
+                                        <div class="form-group <%=dsFPZ.Tables["表单配置子表"].Rows[i]["FS_quyu_css"].ToString() %> " >
                                             <label class="col-sm-2 control-label no-padding-right" for="<%=dsFPZ.Tables["表单配置子表"].Rows[i]["FS_name"] %>">
                                                 <%
                                                     if (dsFPZ.Tables["表单配置子表"].Rows[i]["FS_passnull"].ToString() == "1")
@@ -201,7 +201,7 @@
                                         <%    break;
                                             case "密码框":
                                         %>
-                                        <div class="form-group">
+                                        <div class="form-group <%=dsFPZ.Tables["表单配置子表"].Rows[i]["FS_quyu_css"].ToString() %> ">
                                             <label class="col-sm-2 control-label no-padding-right" for="<%=dsFPZ.Tables["表单配置子表"].Rows[i]["FS_name"] %>">
                                                 <%
                                                     if (dsFPZ.Tables["表单配置子表"].Rows[i]["FS_passnull"].ToString() == "1")
@@ -231,7 +231,7 @@
 
                                             case "下拉框":
                                         %>
-                                        <div class="form-group">
+                                        <div class="form-group <%=dsFPZ.Tables["表单配置子表"].Rows[i]["FS_quyu_css"].ToString() %> ">
                                             <label class="col-sm-2 control-label no-padding-right" for="<%=dsFPZ.Tables["表单配置子表"].Rows[i]["FS_name"] %>">
                                                 <%
                                                     if (dsFPZ.Tables["表单配置子表"].Rows[i]["FS_passnull"].ToString() == "1")
@@ -286,7 +286,7 @@
 
                                             case "单选框":
                                         %>
-                                        <div class="form-group">
+                                        <div class="form-group <%=dsFPZ.Tables["表单配置子表"].Rows[i]["FS_quyu_css"].ToString() %> ">
                                             <label class="col-sm-2 control-label no-padding-right" for="<%=dsFPZ.Tables["表单配置子表"].Rows[i]["FS_name"] %>">
                                                 <%
                                                     if (dsFPZ.Tables["表单配置子表"].Rows[i]["FS_passnull"].ToString() == "1")
@@ -344,7 +344,7 @@
 
                                             case "普通多选框":
                                         %>
-                                        <div class="form-group">
+                                        <div class="form-group <%=dsFPZ.Tables["表单配置子表"].Rows[i]["FS_quyu_css"].ToString() %> ">
                                             <label class="col-sm-2 control-label no-padding-right" for="<%=dsFPZ.Tables["表单配置子表"].Rows[i]["FS_name"] %>">
                                                 <%
                                                     if (dsFPZ.Tables["表单配置子表"].Rows[i]["FS_passnull"].ToString() == "1")
@@ -427,7 +427,7 @@
 
                                             case "下拉多选框":
                                         %>
-                                        <div class="form-group">
+                                        <div class="form-group <%=dsFPZ.Tables["表单配置子表"].Rows[i]["FS_quyu_css"].ToString() %> ">
                                             <label class="col-sm-2 control-label no-padding-right" for="<%=dsFPZ.Tables["表单配置子表"].Rows[i]["FS_name"] %>">
                                                 <%
                                                     if (dsFPZ.Tables["表单配置子表"].Rows[i]["FS_passnull"].ToString() == "1")
@@ -472,7 +472,7 @@
                                             case "省市区联动":
 
                                         %>
-                                        <div class="form-group">
+                                        <div class="form-group <%=dsFPZ.Tables["表单配置子表"].Rows[i]["FS_quyu_css"].ToString() %> ">
                                             <label class="col-sm-2 control-label no-padding-right" for="<%=dsFPZ.Tables["表单配置子表"].Rows[i]["FS_name"] %>">
                                                 <%
                                                     if (dsFPZ.Tables["表单配置子表"].Rows[i]["FS_passnull"].ToString() == "1")
@@ -513,7 +513,7 @@
 
                                             case "整数":
                                         %>
-                                        <div class="form-group">
+                                        <div class="form-group <%=dsFPZ.Tables["表单配置子表"].Rows[i]["FS_quyu_css"].ToString() %> ">
                                             <label class="col-sm-2 control-label no-padding-right" for="<%=dsFPZ.Tables["表单配置子表"].Rows[i]["FS_name"] %>">
                                                 <%
                                                     if (dsFPZ.Tables["表单配置子表"].Rows[i]["FS_passnull"].ToString() == "1")
@@ -540,7 +540,7 @@
                                                 break;
                                             case "两位小数":
                                         %>
-                                        <div class="form-group">
+                                        <div class="form-group <%=dsFPZ.Tables["表单配置子表"].Rows[i]["FS_quyu_css"].ToString() %> ">
                                             <label class="col-sm-2 control-label no-padding-right" for="<%=dsFPZ.Tables["表单配置子表"].Rows[i]["FS_name"] %>">
                                                 <%
                                                     if (dsFPZ.Tables["表单配置子表"].Rows[i]["FS_passnull"].ToString() == "1")
@@ -567,7 +567,7 @@
                                                 break;
                                             case "日期框":
                                         %>
-                                        <div class="form-group">
+                                        <div class="form-group <%=dsFPZ.Tables["表单配置子表"].Rows[i]["FS_quyu_css"].ToString() %> ">
                                             <label class="col-sm-2 control-label no-padding-right" for="<%=dsFPZ.Tables["表单配置子表"].Rows[i]["FS_name"] %>">
                                                 <%
                                                     if (dsFPZ.Tables["表单配置子表"].Rows[i]["FS_passnull"].ToString() == "1")
@@ -599,7 +599,7 @@
                                                 break;
                                             case "日期区间框":
                                         %>
-                                        <div class="form-group">
+                                        <div class="form-group <%=dsFPZ.Tables["表单配置子表"].Rows[i]["FS_quyu_css"].ToString() %> ">
                                             <label class="col-sm-2 control-label no-padding-right" for="<%=dsFPZ.Tables["表单配置子表"].Rows[i]["FS_name"] %>">
                                                 <%
                                                     if (dsFPZ.Tables["表单配置子表"].Rows[i]["FS_passnull"].ToString() == "1")
@@ -676,7 +676,7 @@
                                                 break;
                                             case "大文本框":
                                         %>
-                                        <div class="form-group">
+                                        <div class="form-group <%=dsFPZ.Tables["表单配置子表"].Rows[i]["FS_quyu_css"].ToString() %> ">
                                             <label class="col-sm-2 control-label no-padding-right" for="<%=dsFPZ.Tables["表单配置子表"].Rows[i]["FS_name"] %>">
                                                 <%
                                                     if (dsFPZ.Tables["表单配置子表"].Rows[i]["FS_passnull"].ToString() == "1")
@@ -709,7 +709,7 @@
                                                 break;
                                             case "富文本框":
                                         %>
-                                        <div class="form-group">
+                                        <div class="form-group <%=dsFPZ.Tables["表单配置子表"].Rows[i]["FS_quyu_css"].ToString() %> ">
                                             <label class="col-sm-2 control-label no-padding-right" for="<%=dsFPZ.Tables["表单配置子表"].Rows[i]["FS_name"] %>">
                                                 <%
                                                     if (dsFPZ.Tables["表单配置子表"].Rows[i]["FS_passnull"].ToString() == "1")
@@ -740,7 +740,7 @@
                                                 break;
                                             case "上传组件":
                                         %>
-                                        <div class="form-group">
+                                        <div class="form-group <%=dsFPZ.Tables["表单配置子表"].Rows[i]["FS_quyu_css"].ToString() %> ">
                                             <%
                                                 string chayueURL = "";
                                                 if (Request["idforedit"] != null)
@@ -772,7 +772,7 @@
                                             case "子表数据":
                                         %>
 
-                                        <div class="form-group">
+                                        <div class="form-group <%=dsFPZ.Tables["表单配置子表"].Rows[i]["FS_quyu_css"].ToString() %> ">
                                             <label class="col-sm-12 hidden" for="<%=dsFPZ.Tables["表单配置子表"].Rows[i]["FS_name"] %>">
                                                 <%
                                                     if (dsFPZ.Tables["表单配置子表"].Rows[i]["FS_passnull"].ToString() == "1")
